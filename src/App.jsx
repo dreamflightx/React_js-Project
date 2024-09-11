@@ -89,6 +89,48 @@ function MeroForm(){
   </div>
 }
 
+function Games(){
+
+const [games,setGames] = useState(["Volleyball","Basketball","Circket"])
+
+  return (
+    <div>
+      <h1>This displays Games</h1>
+    <ul>
+    {/* <li>Volleyball</li> */}
+    {games.map((game,index)=>{
+
+      return <li key={index} >{game}</li>
+    })}
+
+    </ul>
+
+    {games.map((game,index)=>{
+      return <Game key={index} title={game} />
+    })}
+
+    </div>
+  )
+
+}
+
+
+function Game(props){
+  return (
+    <div style={{
+      padding:"10px",
+      color:"green",
+      backgroundColor:"cyan",
+      borderRadius:"10px",
+      margin:"10px"
+    }}>
+      <h1>{props.title}</h1>
+     
+
+    </div>
+  )
+}
+
 
 
 
@@ -100,6 +142,7 @@ function App(){
         <Welcome name = "GITA SHARMA" gender="FEMALE" />
         <Counter />
         <MeroForm/>
+        <Games/>
          </div>
   
 }
