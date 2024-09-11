@@ -1,182 +1,44 @@
-import { useState,useEffect, useRef } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-// import './App.css'
+import React, { useState } from 'react'
 
-function Welcome(props){
-  return <h1>Hello, {props.name}! , you are {props.gender} </h1>
+function App() {
+    const [games,setGames] = useState([
 
-}
-
-
-function Counter(){
-  const [count,setCount] = useState(0)
-  const [nextVar,setNextVar] = useState(0)
-
-
-  useEffect(
-    ()=>{
-      console.log('COUNTER MOUNTED')
-      
-      setCount(count+5)
-    },[nextVar]
-  )
-
-
-  function chNext(){
-    setNextVar(nextVar+1)
-  }
-
-
-
-  function increase(){
-    // count++
-    setCount(count+1)
-    console.log(count)
-  }
-
-  return <div>
-  <h1>The Count Value : {count} </h1>
-
-  <button onClick={increase} onMouseEnter={
-    ()=>{
-      console.log("MOUSE Entered")
-  }
-  }>INCREASE</button>
-
-
-  <button onClick={chNext}>CHANGE NEXT COUNT {nextVar}</button>
-</div>
-}
-
-function MeroForm(){
-  const [firstName,setFirstName] = useState("")
-  const [premiumUser,setPremiumUser] = useState(true)
-
-  // if(premiumUser){
-  //   return <h2>You are a Premium User, you can enjoy premium features</h2>
-  // }
-  // else{
-  //  return <h2>You are a Normal User, you can enjoy normal features</h2>
-  // }
-
-  return <div>
-    <br />
-    <br />
-    <br />
-    <h1>This is my form</h1>
-    <button onClick={()=>{
-      setPremiumUser(!premiumUser)
-    }}>Toggle Premium</button>
-
-    {
-      premiumUser ? (<h1>You are Permium User</h1>):(<h1>You are Normal User</h1>)
-    }
-   
-
-    <h2>FirstName Value is : {firstName||"N/A"}</h2>
-
-    <form  >
-      <label htmlFor="firstName">FirstName</label>
-      <input value={firstName} id="firstName" type="text" onChange={
-        (e)=>{
-          console.log("input changed ", e.target.value)
-          setFirstName(e.target.value)
-        }
-      }  />
-
-    </form>
-  </div>
-}
-
-function Games(){
-
-const [games,setGames] = useState(["Volleyball","Basketball","Circket"])
+        {id:1, name:"Volleyball", players:"10M"},
+        {id:2, name:"Basketball", players:"2M"},
+        {id:3, name:"Football", players:"50M"},
+    ])
 
   return (
     <div>
-      <h1>This displays Games</h1>
-    <ul>
-    {/* <li>Volleyball</li> */}
-    {games.map((game,index)=>{
+    <h1 className='text-3xl  '>  THis in index page</h1>
 
-      return <li key={index} >{game}</li>
-    })}
+    <h1 className="text-5xl font-bold text-center">Popular Games</h1>
 
-    </ul>
-
-    {games.map((game,index)=>{
-      return <Game key={index} title={game} />
-    })}
-
-    </div>
-  )
-
-}
+    {games.map(
+        (game) =>{
+            return(
+                <div key={game.id} className="bg-indigo-400 rounded-xl text-white m-4 p-4">
+                    <h2 className="text-2xl font-bold">{game.name}</h2>
+                    <p className="text-lg">{game.players} players</p>
+                    </div>
+            )
+        }
+    )}
 
 
-function Game(props){
-  return (
-    <div style={{
-      padding:"10px",
-      color:"green",
-      backgroundColor:"cyan",
-      borderRadius:"10px",
-      margin:"10px"
-    }}>
-      <h1>{props.title}</h1>
-     
 
     </div>
   )
 }
 
+export default App
 
 
+// function App(){
+//     return (<div>
 
-function App(){
-  let person_name = "RAM SHARMA"
-
-  return <div> 
-    <Welcome name={person_name}  gender = "MALE" />
-        <Welcome name = "GITA SHARMA" gender="FEMALE" />
-        <Counter />
-        <MeroForm/>
-        <Games/>
-         </div>
-  
-}
-
-export default App;
-
-
-// function App() {
-//   const [count, setCount] = useState(0)
-
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vitejs.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   )
+//         This is App INDEX PAGE
+//     </div>)
 // }
 
 // export default App
