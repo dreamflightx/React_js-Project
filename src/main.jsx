@@ -9,6 +9,7 @@ import AboutPage from './components/AboutPage.jsx'
 import ContactPage from './components/ContactPage.jsx'
 import Layout from './layout/Layout.jsx'
 import DynamicPage from './components/DynamicPage.jsx'
+import ProductPage from './components/ProductPage.jsx'
 
 
 
@@ -25,6 +26,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/services" element={<ServicePage/>} />
           <Route path="/about" element={<AboutPage/>} />
           <Route path="/contact" element={<ContactPage/>} />
+          <Route path='/products' element= { <ProductPage/> } />
           
         </Routes>
         

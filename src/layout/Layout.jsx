@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 function Layout({children}) {
 
 
-    
+
   return (
 
     <div>
@@ -22,6 +22,7 @@ function Layout({children}) {
              
                 <Link to="/" className='hover:text-blue-500'>Home</Link>
                 </li>
+                <li><Link to="/products" className='hover:text-blue-500'>Products</Link></li>
             <li><Link to="/about" className='hover:text-blue-500'>About</Link></li>
             <li><Link to="/services" className='hover:text-blue-500'>Services</Link></li>
             <li><a href="/contact" className="hover:text-blue-500">Contact</a></li>
