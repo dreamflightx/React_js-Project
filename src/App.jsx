@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
+import Game from './components/Game'
 
 function App() {
     const [games,setGames] = useState([
 
-        {id:1, name:"Volleyball", players:"10M"},
-        {id:2, name:"Basketball", players:"2M"},
-        {id:3, name:"Football", players:"50M"},
+        {id:1, name:"Volleyball", players:"10M",color:"red",twcolor:"bg-indigo-300"},
+        {id:2, name:"Basketball", players:"2M",color:"green",twcolor:"bg-pink-500"},
+        {id:3, name:"Football", players:"50M",color:"blue",twcolor:"bg-orange-500"},
     ])
 
   return (
@@ -17,10 +18,8 @@ function App() {
     {games.map(
         (game) =>{
             return(
-                <div key={game.id} className="bg-indigo-400 rounded-xl text-white m-4 p-4">
-                    <h2 className="text-2xl font-bold">{game.name}</h2>
-                    <p className="text-lg">{game.players} players</p>
-                    </div>
+                <Game key={game.id} game={game}/>   
+            
             )
         }
     )}
@@ -32,6 +31,11 @@ function App() {
 }
 
 export default App
+
+
+
+
+
 
 
 // function App(){
